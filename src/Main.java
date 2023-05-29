@@ -10,7 +10,7 @@ public class Main {
         Drink drink = new Drink();
         Order order = new Order();
 
-        List<Menu> bucket = new ArrayList<Menu>();
+        ArrayList<Menu> bucket = new ArrayList<Menu>();
         Drink[] drinks = {
                 new Drink("코카콜라", 2.0, "코카콜라 355ml"),
                 new Drink("사이다", 2.0, "사이다 355ml")
@@ -32,19 +32,15 @@ public class Main {
                     num = sc.nextInt();
                     order.addToCart(drinks[num-1]);
                     oneOrTwo = sc.nextInt();
-                    //bucket
-                    order.addMessage(drinks[num-1],oneOrTwo);
+                    order.addMessage(bucket, drinks[num-1],oneOrTwo);
 
                     break;
+
                 case 6:
-                    System.out.println("진행하던 주문을 취소하시겠습니까?");
-                    input = sc.nextInt();
-                    if(input==1){
-                        System.out.println("진행하던 주문이 취소되었습니다.");
-                        System.out.println();
-                        //장바구니 비우기
-                        continue;
-                    }
+                    order.cancelOrderMessage();
+                    num = sc.nextInt();
+                    order.cancelOrder(bucket,num);
+                    break;
             }
         }
 
