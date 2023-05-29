@@ -1,21 +1,11 @@
 public class Drink extends Menu{
 
-    double price;
-
-//    Drink[] drink = {
-//            new Drink("코카콜라", 2.0, "코카콜라 355ml"),
-//            new Drink("사이다", 2.0, "사이다 355ml")
-//    };
-
     public Drink(String name, double price, String description) {
         this.name = name;
         this.price = price;
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
-    }
 
     public Drink(){
 

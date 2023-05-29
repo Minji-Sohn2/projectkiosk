@@ -35,7 +35,11 @@ public class Main {
                     order.addMessage(bucket, drinks[num-1],oneOrTwo);
 
                     break;
-
+                case 5:
+                    order.checkBucket(bucket);
+                    oneOrTwo = sc.nextInt();
+                    order.finishOrder(oneOrTwo);
+                    break;
                 case 6:
                     order.cancelOrderMessage();
                     num = sc.nextInt();

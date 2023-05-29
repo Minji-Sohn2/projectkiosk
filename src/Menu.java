@@ -1,5 +1,6 @@
 public class Menu {
     String name;
+    double price;
     String description;
     public Menu(){
 
@@ -7,6 +8,10 @@ public class Menu {
 
     public String getName(){
         return name;
+    }
+
+    public double getPrice(){
+        return price;
     }
 
     public String getDescription(){
@@ -25,4 +30,6 @@ public class Menu {
         System.out.println("6. Cancel       | 진행중인 주문을 취소합니다.");
 
     }
+
+
 }
