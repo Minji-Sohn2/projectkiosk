@@ -24,13 +24,13 @@ public class Noodle extends Menu{
         return price;
     }
 
-    public Noodle getMenu(int num){
+    public Menu getMenu(int num){
         return noodleMenu[num-1];
     }
 
     // noodle 메뉴판 보여주기
-    public void showNoodle( ){
-        System.out.println("\"민지 만두에 오신걸 환영합니다.\"");
+    public void showMenu( ){
+        System.out.println("\n\n\"민지 만두에 오신걸 환영합니다.\"");
         System.out.println("아래 상품메뉴판을 보시고 상품을 골라 입력해주세요.");
         System.out.println();
         System.out.println("[ Noodle Menu ]");

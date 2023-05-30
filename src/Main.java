@@ -7,15 +7,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Menu menu = new Menu();
+        Dumpling dumpling = new Dumpling();
+        Soup soup = new Soup();
         Drink drink = new Drink();
         Noodle noodle = new Noodle();
         Order order = new Order();
 
         ArrayList<Menu> bucket = new ArrayList<Menu>(); // 장바구니
-        Drink[] drinkMenu = {
-                new Drink("코카콜라", 2.0, "코카콜라 355ml"),
-                new Drink("사이다", 2.0, "사이다 355ml")
-        };
+
         while(true){
             System.out.println("\"민지 만두에 오신걸 환영합니다.\"");
             System.out.println("아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.");
@@ -25,13 +24,23 @@ public class Main {
 
             switch(input){
                 case 1:
-                    System.out.println(1);
+                    dumpling.showMenu();
+                    num = sc.nextInt();
+                    order.addToCart(dumpling.getMenu(num));
+                    oneOrTwo = sc.nextInt();
+                    order.addMessage(bucket,dumpling.getMenu(num),oneOrTwo);
                     break;
 
                 case 2:
+                    soup.showMenu();
+                    num = sc.nextInt();
+                    order.addToCart(soup.getMenu(num));
+                    oneOrTwo = sc.nextInt();
+                    order.addMessage(bucket,soup.getMenu(num),oneOrTwo);
                     break;
+
                 case 3:
-                    noodle.showNoodle();
+                    noodle.showMenu();
                     num = sc.nextInt();
                     order.addToCart(noodle.getMenu(num));
                     oneOrTwo = sc.nextInt();
@@ -39,12 +48,11 @@ public class Main {
                     break;
 
                 case 4:
-                    drink.showDrink(drinkMenu);
-                    System.out.println();
+                    drink.showMenu();
                     num = sc.nextInt();
-                    order.addToCart(drinkMenu[num-1]);
+                    order.addToCart(drink.getMenu(num));
                     oneOrTwo = sc.nextInt();
-                    order.addMessage(bucket, drinkMenu[num-1],oneOrTwo);
+                    order.addMessage(bucket, drink.getMenu(num),oneOrTwo);
                     break;
 
                 case 5:

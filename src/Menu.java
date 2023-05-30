@@ -18,9 +18,10 @@ public class Menu {
         return description;
     }
 
+
     // 메인 메뉴판
     public void showMenu(){
-        System.out.println("[ 민지 만두 MENU ]");
+        System.out.println("\n[ 민지 만두 MENU ]");
         System.out.println("1. Dumpling     | 고기만두, 김치만두,,,");
         System.out.println("2. Soup         | 고기만두국, 김치만두국,,,");
         System.out.println("3. Noodle       | 쫄면, 물냉면,,,");
@@ -31,10 +32,5 @@ public class Menu {
         System.out.println("6. Cancel       | 진행중인 주문을 취소합니다.");
 
     }
-
-    // 객체 내용 출력 -> 메뉴판, 장바구니 확인 등
-//    public String toString(){
-//        return getName() + "\t\t" + getPrice() + "\t\t" + getDescription();
-//    }
 
 }
