@@ -33,17 +33,18 @@ public class Order {
             System.out.println(m.toString());
             total += m.getPrice();
         }
-        System.out.println("\n[ Total ]\n\\" + total + "\n");
+        System.out.println("\n[ Total ]\nW" + total + "\n");
         System.out.println("1. 주문       2. 메뉴판");
     }
 
     // 주문완료 화면
-    public void finishOrder(int oneOrTwo){
+    public void finishOrder(ArrayList<Menu> bucket, int oneOrTwo){
         if(oneOrTwo==1){
+            bucket.clear();
             System.out.println("\n주문이 완료되었습니다!\n");
             waitingNumber++;
             System.out.println("대기번호는 [ " + waitingNumber + " ] 번 입니다.");
-            System.out.println("(3초후 메뉴판으로 돌아갑니다.)");
+            System.out.println("(3초후 메뉴판으로 돌아갑니다.)\n\n");
             // 3초 대기
         }else if(oneOrTwo==2){
             return;
@@ -58,16 +59,13 @@ public class Order {
     public void cancelOrder(ArrayList<Menu> bucket, int oneOrTwo){
         if(oneOrTwo==1){
             //bucket이 비어있지 않다면
-            if(bucket!=null){
+            if(bucket!=null) {
                 bucket.clear();
-                System.out.println("진행하던 주문이 취소되었습니다.");
-                System.out.println("\n\n\n");
-            }else{
-                System.out.println("\n\n\n");
-                return;
             }
+                System.out.println("진행하던 주문이 취소되었습니다.");
+
         }else if(oneOrTwo==2){
-            System.out.println("\n\n\n");
+            System.out.println("처음 화면으로 돌아갑니다.\n\n");
             return;
         }
     }

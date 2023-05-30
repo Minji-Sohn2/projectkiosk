@@ -1,11 +1,17 @@
 public class Drink extends Menu{
 
+    double price;
+
     public Drink(String name, double price, String description) {
         this.name = name;
         this.price = price;
         this.description = description;
     }
 
+
+    public double getPrice(){
+        return price;
+    }
 
     public Drink(){
 
@@ -25,6 +31,5 @@ public class Drink extends Menu{
 
     //객체 내용 출력 -> 메뉴판, 장바구니 확인 등
     public String toString(){
-        return getName() + "\t\t" + getPrice() + "\t\t" + getDescription();
-    }
-}
+        return getName() + "\t\t|\t" + getPrice() + "\t|\t" + getDescription();
+    }}

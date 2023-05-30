@@ -18,6 +18,7 @@ public class Menu {
         return description;
     }
 
+    // 메인 메뉴판
     public void showMenu(){
         System.out.println("[ 민지 만두 MENU ]");
         System.out.println("1. Dumpling     | 고기만두, 김치만두,,,");
@@ -31,5 +32,9 @@ public class Menu {
 
     }
 
+    // 객체 내용 출력 -> 메뉴판, 장바구니 확인 등
+//    public String toString(){
+//        return getName() + "\t\t" + getPrice() + "\t\t" + getDescription();
+//    }
 
 }
