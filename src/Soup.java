@@ -40,6 +40,6 @@ public class Soup extends Menu{
 
     //객체 내용 출력 -> 메뉴판, 장바구니 확인 등
     public String toString(){
-        return getName() + "\t|\t" + getPrice() + "\t|\t" + getDescription();
+        return getName() + "\t\t| W " + getPrice() + " |\t" + getDescription();
     }
 }

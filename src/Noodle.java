@@ -43,6 +43,6 @@ public class Noodle extends Menu{
     }
 
     public String toString(){
-        return getName() + "\t\t|\t" + getPrice() + "\t|\t" + getDescription();
+        return getName() + "\t\t| W " + getPrice() + " |\t" + getDescription();
     }
 }

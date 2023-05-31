@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 public class Order {
 
@@ -25,6 +27,25 @@ public class Order {
     }
 
     // bucket에 담긴 음식 확인 후 주문할지 메뉴판으로 돌아갈지 결정
+//    public void checkBucket(ArrayList<Menu> bucket){
+//        System.out.println("\n아래와 같이 주문 하시겠습니까?\n");
+//        System.out.println("[ Orders ]");
+//        double total = 0.0;
+//        for(Menu m : bucket){
+//            // collection 안에 같은 값의 개수 확인
+//            int count = Collections.frequency(bucket,m);
+//
+//            System.out.println(m.getName() + "\t| W " + m.getPrice() + " | " + count + "개 | " + m.getDescription());
+//            total += m.getPrice();
+//
+//            if (count > 1) {
+//                bucket.removeIf(menu -> menu.getName().equals(m.getName()));
+//            }
+//        }
+//        System.out.println("\n[ Total ]\nW " + total + "\n");
+//        System.out.println("1. 주문       2. 메뉴판");
+//    }
+
     public void checkBucket(ArrayList<Menu> bucket){
         System.out.println("\n아래와 같이 주문 하시겠습니까?\n");
         System.out.println("[ Orders ]");
@@ -38,14 +59,20 @@ public class Order {
     }
 
     // 주문완료 화면
-    public void finishOrder(ArrayList<Menu> bucket, int oneOrTwo){
+    public void finishOrder(ArrayList<Menu> totalSales, ArrayList<Menu> bucket, int oneOrTwo) throws InterruptedException {
         if(oneOrTwo==1){
+            // 주문 내용 totalSales에 복사
+            for(Menu m : bucket){
+                totalSales.add(m);
+            }
+            // 주문 완료된 장바구니 비우기
             bucket.clear();
             System.out.println("\n주문이 완료되었습니다!\n");
             waitingNumber++;
             System.out.println("대기번호는 [ " + waitingNumber + " ] 번 입니다.");
             System.out.println("(3초후 메뉴판으로 돌아갑니다.)\n\n");
             // 3초 대기
+            TimeUnit.SECONDS.sleep(3);
         }else if(oneOrTwo==2){
             return;
         }
@@ -58,11 +85,11 @@ public class Order {
 
     public void cancelOrder(ArrayList<Menu> bucket, int oneOrTwo){
         if(oneOrTwo==1){
-            //bucket이 비어있지 않다면
+            // bucket이 비어있지 않다면
             if(bucket!=null) {
                 bucket.clear();
             }
-                System.out.println("진행하던 주문이 취소되었습니다.");
+            System.out.println("진행하던 주문이 취소되었습니다.");
 
         }else if(oneOrTwo==2){
             System.out.println("처음 화면으로 돌아갑니다.\n\n");

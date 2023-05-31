@@ -40,7 +40,7 @@ public class Dumpling extends Menu {
     }
 
     public String toString(){
-        return getName() + "\t|\t" + getPrice() + "\t|\t" + getDescription();
+        return getName() + "\t| W " + getPrice() + " |\t" + getDescription();
     }
 
 }

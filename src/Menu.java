@@ -2,6 +2,7 @@ public class Menu {
     String name;
     double price;
     String description;
+    int count;
     public Menu(){
 
     }

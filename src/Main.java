@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         Menu menu = new Menu();
         Dumpling dumpling = new Dumpling();
@@ -12,8 +12,10 @@ public class Main {
         Drink drink = new Drink();
         Noodle noodle = new Noodle();
         Order order = new Order();
+        Pos pos = new Pos();
 
         ArrayList<Menu> bucket = new ArrayList<Menu>(); // 장바구니
+        ArrayList<Menu> totalSales = new ArrayList<Menu>(); // 총 판매
 
         while(true){
             System.out.println("\"민지 만두에 오신걸 환영합니다.\"");
@@ -58,13 +60,19 @@ public class Main {
                 case 5:
                     order.checkBucket(bucket);
                     oneOrTwo = sc.nextInt();
-                    order.finishOrder(bucket, oneOrTwo);
+                    order.finishOrder(totalSales, bucket, oneOrTwo);
                     break;
 
                 case 6:
                     order.cancelOrderMessage();
                     num = sc.nextInt();
                     order.cancelOrder(bucket,num);
+                    break;
+
+                case 0:
+                    pos.printTotalSales(totalSales);
+                    oneOrTwo = sc.nextInt();
+                    pos.backToMain(oneOrTwo);
                     break;
             }
         }
