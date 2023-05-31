@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class Order {
@@ -26,7 +28,7 @@ public class Order {
         }
     }
 
-    // bucket에 담긴 음식 확인 후 주문할지 메뉴판으로 돌아갈지 결정
+//    // bucket에 담긴 음식 확인 후 주문할지 메뉴판으로 돌아갈지 결정
 //    public void checkBucket(ArrayList<Menu> bucket){
 //        System.out.println("\n아래와 같이 주문 하시겠습니까?\n");
 //        System.out.println("[ Orders ]");
@@ -47,9 +49,18 @@ public class Order {
 //    }
 
     public void checkBucket(ArrayList<Menu> bucket){
+        Map<String, Integer> bucketMap = new HashMap<String, Integer>();
+        
         System.out.println("\n아래와 같이 주문 하시겠습니까?\n");
         System.out.println("[ Orders ]");
         double total = 0.0;
+
+        for(Menu m : bucket){
+            if(bucketMap.containsKey(m.getName())){
+                bucketMap.put(m.getName(),bucketMap.get(m.getName())+1);
+            }
+            bucketMap.put(m.getName(),1);
+        }
         for(Menu m : bucket){
             System.out.println(m.toString());
             total += m.getPrice();
@@ -76,8 +87,8 @@ public class Order {
         }else if(oneOrTwo==2){
             return;
         }
-
     }
+
     public void cancelOrderMessage(){
         System.out.println("진행하던 주문을 취소하시겠습니까?");
         System.out.println("1. 확인       2. 취소");

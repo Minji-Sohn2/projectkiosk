@@ -74,6 +74,9 @@ public class Main {
                     oneOrTwo = sc.nextInt();
                     pos.backToMain(oneOrTwo);
                     break;
+                default:
+                    System.out.println("1부터 6까지의 숫자만 입력하세요.");
+                    break;
             }
         }
 
